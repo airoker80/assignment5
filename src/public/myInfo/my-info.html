@@ -1,0 +1,7 @@
+﻿<menu-item-fav menu-item="myInfoCtrl.dishData" ng-if="myInfoCtrl.user">
+  </menu-item-fav>
+
+<div ng-if="!myInfoCtrl.user">
+    Not Signed up Yet...
+    <div style="text-decoration: underline; cursor: pointer" ui-sref="public.signup">Sign Up Now</div>
+</div>

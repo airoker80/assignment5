@@ -1,0 +1,58 @@
+﻿<div class="signup">
+    <fieldset>
+        <legend style="color: white;">Sign Up</legend>
+        <form name='regForm' novalidate>
+
+            <input type="text" name="firstname" placeholder="First Name"
+                ng-model="signUpCtrl.user.firstname"
+                class="form-control"
+                required><span ng-if="(regForm.firstname.$error.required) && regForm.firstname.$touched">This field is Required</span>
+            <br>
+
+            <input type="text" name="lastname" placeholder="Last Name"
+                class="form-control"
+                ng-model="signUpCtrl.user.lastname" required>
+            <span
+              ng-if="(regForm.lastname.$error.required) && regForm.lastname.$touched">This field is Required
+          </span>
+            <br>
+            <input type="email" name="email" placeholder="Email"
+                class="form-control"
+                ng-model="signUpCtrl.user.email"
+                required>
+            <span ng-if="regForm.email.$invalid && regForm.email.$touched">Must be a valid email address: handle@domain format
+            </span>
+            <br>
+
+            <input type="text" name="phone" placeholder="Phone ###-###-####"
+                class="form-control"
+                ng-model="signUpCtrl.user.phone"
+                pattern="(\d{3})-(\d{3})-(\d{4})">
+            <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">Phone must be in the format ###-###-####.
+            </span>
+            <br>
+
+            <input type="text" name="favoriteDish" placeholder="Favorite Dish"
+                class="form-control"
+                ng-model="signUpCtrl.user.favoriteDish"
+                required>
+            <span
+              ng-if="(regForm.favoriteDish.$error.required) && regForm.favoriteDish.$touched">This field is Required
+          </span>
+            <br />
+            <button
+                class="btn btn-primary"
+                ng-disabled="regForm.$invalid"
+                ng-click="signUpCtrl.submit()">
+                Submit</button>
+
+            <div style="margin-top: 10px;" ng-if="signUpCtrl.success">
+                Added Successfully
+            </div>
+            <div style="margin-top: 10px;" ng-if="signUpCtrl.error">
+                Dish Not Found !!!
+            </div>
+        </form>
+    </fieldset>
+
+</div>
